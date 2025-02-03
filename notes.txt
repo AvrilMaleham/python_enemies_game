@@ -1,0 +1,32 @@
+The 4 pillars of Object-Oriented Programming
+
+- Abstraction
+    Classes can contain methods. Methods are functions defined on the class, these can be long. However, when we call the method on the class in a different file, we only need to use the method name, so the logic is abstracted in the other file.
+   
+   For example, in this project something like:   
+    def talk(self):
+        print(f'I am a {self.__type_of_enemy}. Be prepared to fight!')
+
+    Can be called as: print(vampire.talk())
+
+- Encapsulation
+    Double underscore means a property cannot be accessed outside of the class where it is defined, to avoid it from being changed and keep the code cleaner and less confusing. This also means we can no longer access it, even as read only. To do this we need to define a getter function within the class. 
+
+    For example, in this project we use: 
+    self.__type_of_enemy = type_of_enemy
+
+    With the getter function:  def get_type_of_enemy(self):
+        return self.__type_of_enemy
+
+    Which is accessed: print(vampire.get_type_of_enemy()) 
+
+- Inheritance
+    Children classes can inherit methods and properties from parent classes, essentially extending the class to include other unique methods/properties. This makes the code re-usable and avoids repetition. 
+   
+    For example, in this project the parent class is Enemy, and the children classes, Ogre and Zombie, inherit the methods and properties of Enemy, but not of each other. 
+
+- Polymorphism
+    You can use the parent class reference to call the method of any child object, and the correct behaviour will be executed without the need to call each method individually for each child. It's like a generic placeholder. 
+  
+    For example, in this project we define the function battle(), which calls talk() and attack() on Enemy, then when we want to use this function we only need to pass in the name of the child as a prop instead of needing to define seperate functions for every child. 
+
